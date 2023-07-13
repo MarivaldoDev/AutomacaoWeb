@@ -31,7 +31,7 @@ navegador.quit()
 try:
     tabela = pd.read_excel("Produtos.xlsx")
 except:
-    print("ERRO! Verifique se o arquivo está no mesmo caminho do código")
+    print("ERRO! Verifique se o arquivo excel está no mesmo caminho do código")
 else:
     tabela.loc[tabela['Moeda'] == "Dólar", "Cotação"] = float(cotacao_dolar)
     tabela.loc[tabela['Moeda'] == "Euro", "Cotação"] = float(cotacao_euro)
