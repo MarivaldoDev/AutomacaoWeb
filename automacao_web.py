@@ -10,18 +10,18 @@ import pandas as pd
 #  PEGANDO COTAÇÃO DO DÓLAR
 servico = Service(ChromeDriverManager().install())
 navegador = webdriver.Chrome(service=servico)
-navegador.get("https://www.google.com/")
-navegador.find_element(By.XPATH, '//*[@id="APjFqb"]').send_keys("cotacao dolar" + Keys.ENTER)
+navegador.get("https://www.google.com/search?q=cotacao+dolar")
 cotacao_dolar = navegador.find_element(By.XPATH, '//*[@id="knowledge-currency__updatable-data-column"]/div[1]/div[2]/span[1]').get_attribute('data-value')
-navegador.find_element(By.XPATH, '//*[@id="tsf"]/div[1]/div[1]/div[3]/div/div[3]/div[1]/div').click()
+navegador.quit()
 
 #  PEGANDO COTAÇÃO DO EURO
-navegador.find_element(By.XPATH, '//*[@id="APjFqb"]').send_keys("cotacao euro" + Keys.ENTER)
+navegador = webdriver.Chrome(service=servico)
+navegador.get("https://www.google.com/search?q=cotacao+euro")
 cotacao_euro = navegador.find_element(By.XPATH, '//*[@id="knowledge-currency__updatable-data-column"]/div[1]/div[2]/span[1]').get_attribute('data-value')
 navegador.quit()
 
 #  PEGANDO COTAÇÃO DO OURO
-navegador = webdriver.Chrome()
+navegador = webdriver.Chrome(service=servico)
 navegador.get("https://www.melhorcambio.com/ouro-hoje")
 cotacao_ouro = navegador.find_element(By.XPATH, '//*[@id="comercial"]').get_attribute('value')
 cotacao_ouro = cotacao_ouro.replace(",", ".")
