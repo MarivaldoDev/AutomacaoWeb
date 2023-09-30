@@ -1,2 +1,2 @@
 # AutomacaoWeb
- Automaçao de cotaçoes utilizando a biblioteca selenium
+ Automação de cotaçeõs utilizando a biblioteca selenium
