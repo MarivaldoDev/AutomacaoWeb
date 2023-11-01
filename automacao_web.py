@@ -29,7 +29,7 @@ navegador.quit()
 # ATUALIZANDO OS DADOS DA TABELA EXCEL COM AS COTAÇÕES ATUAIS
 try:
     tabela = pd.read_excel("Produtos.xlsx")
-except:
+except FileNotFoundError:
     print("ERRO! Verifique se o arquivo excel está no mesmo caminho do código")
 else:
     tabela.loc[tabela['Moeda'] == "Dólar", "Cotação"] = float(cotacao_dolar)
